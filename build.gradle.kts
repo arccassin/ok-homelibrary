@@ -2,7 +2,7 @@ plugins {
     kotlin("jvm") apply false
 }
 
-group = "ru.otus.kotlin.marketplace"
+group = "ru.otus.kotlin.circus"
 version = "0.0.1"
 
 
