@@ -1,6 +1,12 @@
-pluginManagement{
-    val kotlinVersion: String by settings
-    plugins{
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+}
+
+pluginManagement {
+    plugins {
+        val kotlinVersion: String by settings
         kotlin("jvm") version kotlinVersion
     }
 }
@@ -8,6 +14,8 @@ pluginManagement{
 plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
 }
-rootProject.name = "circus"
+rootProject.name = "ok-home-library"
 
-include("m1l1-first")
+includeBuild("ok-lessons")
+includeBuild("ok-home-library-be")
+includeBuild("build-plugin")
