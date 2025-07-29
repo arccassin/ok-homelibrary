@@ -1,6 +1,5 @@
 plugins {
-    alias(libs.plugins.jvm) apply false
-    alias(libs.plugins.multiplatform) apply false
+    kotlin("jvm") apply false
 }
 
 group = "com.otus.otuskotlin.lessons"
