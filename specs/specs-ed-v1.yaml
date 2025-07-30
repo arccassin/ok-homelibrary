@@ -186,21 +186,30 @@ components:
     EdLock:
       type: string
       description: Версия оптимистичной блокировки
+    Title:
+      type: string
+      description: Заголовок издания
+    Author:
+      type: string
+      description: Автор издания
+    ISBN:
+      type: string
+      description: Код ISBN издания
 
     BaseEd:
       type: object
       description: Объект описывает свойства, одинаковые для create и update
       properties:
-        Title:
+        title:
           type: string
-          description: Заголовок издания
-        Author:
+          $ref: '#/components/schemas/Title'
+        author:
           type: string
-          description: Автор издания
-        ISBN:
+          $ref: '#/components/schemas/Author'
+        isbn:
           type: string
-          description: Код ISBN издания
-        Year:
+          $ref: '#/components/schemas/ISBN'
+        year:
           type: string
           pattern: "[0-9]{4}"
           description: Год выпуска
@@ -284,6 +293,12 @@ components:
           description: Поисковая строка, которая будет искаться в изданиях
         ownerId:
           $ref: '#/components/schemas/UserId'
+        title:
+          $ref: '#/components/schemas/Title'
+        author:
+          $ref: '#/components/schemas/Author'
+        isbn:
+          $ref: '#/components/schemas/ISBN'
 
     EdSearchRequest:
       allOf:

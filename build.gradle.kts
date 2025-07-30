@@ -21,6 +21,6 @@ subprojects {
 tasks {
     create("check") {
         group = "verification"
-        dependsOn(gradle.includedBuild("home-library-be").task(":check"))
+        dependsOn(gradle.includedBuild("homelibrary-be").task(":check"))
     }
 }

@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform) apply false
 }
 
-group = "com.otus.otuskotlin.home.library"
+group = "com.otus.otuskotlin.homelibrary"
 version = "0.0.1"
 
 allprojects {
@@ -20,6 +20,7 @@ subprojects {
 ext {
     val specDir = layout.projectDirectory.dir("../specs")
     set("spec-v1", specDir.file("specs-ed-v1.yaml").toString())
+    set("spec-ed-log", specDir.file("specs-ed-log.yaml").toString())
 }
 
 tasks {

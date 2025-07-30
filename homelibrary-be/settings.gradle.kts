@@ -26,4 +26,6 @@ plugins {
 //implementation(projects.m2l5Gradle.sub1.ssub1)
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
-include(":home-library-api-v1-kmp")
+include(":homelibrary-api-v1-kmp")
+include(":homelibrary-common")
+include(":homelibrary-stubs")
