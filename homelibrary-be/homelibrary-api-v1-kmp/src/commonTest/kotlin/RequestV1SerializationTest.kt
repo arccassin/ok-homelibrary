@@ -51,7 +51,7 @@ class RequestV1SerializationTest {
     @Test
     fun deserializeNaked() {
         val jsonString = """
-            {"ad": null}
+            {"ed": null}
         """.trimIndent()
         val obj = apiV1Mapper.decodeFromString<EdCreateRequest>(jsonString)
 

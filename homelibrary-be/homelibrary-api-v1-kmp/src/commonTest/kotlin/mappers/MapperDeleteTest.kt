@@ -11,7 +11,7 @@ import kotlin.test.Test
 class MapperDeleteTest {
     @Test
     fun fromTransport() {
-        val ad = HmlrEdStub.get()
+        val ed = HmlrEdStub.get()
         val req = EdDeleteRequest(
             debug = EdDebug(
                 mode = EdRequestDebugMode.STUB,
@@ -25,8 +25,8 @@ class MapperDeleteTest {
 
         assertEquals(HmlrStubs.SUCCESS, context.stubCase)
         assertEquals(HmlrWorkMode.STUB, context.workMode)
-        assertEquals(ad.id.toTransportEd(), context.edRequest.id.asString())
-        assertEquals(ad.lock.toTransportEd(), context.edRequest.lock.asString())
+        assertEquals(ed.id.toTransportEd(), context.edRequest.id.asString())
+        assertEquals(ed.lock.toTransportEd(), context.edRequest.lock.asString())
     }
 
     @Test
