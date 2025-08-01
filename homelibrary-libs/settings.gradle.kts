@@ -1,3 +1,5 @@
+rootProject.name = "homelibrary-libs"
+
 dependencyResolutionManagement {
     versionCatalogs {
         create("libs") {
@@ -22,11 +24,5 @@ plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
 }
 
-// Включает вот такую конструкцию
-//implementation(projects.m2l5Gradle.sub1.ssub1)
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-
-include(":homelibrary-api-log")
-include(":homelibrary-api-v1-kmp")
-include(":homelibrary-common")
-include(":homelibrary-stubs")
+include(":homelibrary-lib-logging-common")
+include(":homelibrary-lib-logging-logback")

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export LC_ALL=C
-TOPIC=ok-Hmlr-logs
+TOPIC=ok-hmlr-logs
 
 /opt/bitnami/kafka/bin/kafka-topics.sh \
   --bootstrap-server kafka:9092 \

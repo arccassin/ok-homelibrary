@@ -12,4 +12,5 @@ rootProject.name = "homelibrary"
 
 includeBuild("ok-lessons")
 includeBuild("homelibrary-be")
+includeBuild("homelibrary-libs")
 includeBuild("build-plugin")
