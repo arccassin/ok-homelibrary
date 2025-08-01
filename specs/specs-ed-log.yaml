@@ -1,0 +1,114 @@
+openapi: 3.0.4
+info:
+  title: Homelibrary log models
+  description: Log models for logging services of homelibrary
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+paths: {}
+
+components:
+  schemas:
+    CommonLogModel:
+      title: Общая модель лога
+      description: Общая модель лога для всех микросервисов системы
+      type: object
+      properties:
+        messageTime:
+          type: string
+        logId:
+          type: string
+        source:
+          type: string
+        ed:
+          $ref: '#/components/schemas/HmlrLogModel'
+#        comments:
+#          $ref: '#/components/schemas/HmlrLogModel'
+#        files:
+#          $ref: '#/components/schemas/HmlrLogModel'
+#        images:
+#          $ref: '#/components/schemas/HmlrLogModel'
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorLogModel'
+
+    HmlrLogModel:
+      title: Модель лога для микросервиса HomeLibrary
+      type: object
+      properties:
+        requestId:
+          type: string
+        operation:
+          $ref: '#/components/schemas/HmlrLogOperation'
+        requestEd:
+          $ref: '#/components/schemas/EdLog'
+        requestFilter:
+          $ref: '#/components/schemas/EdFilterLog'
+        responseEd:
+          $ref: '#/components/schemas/EdLog'
+        responseEds:
+          type: array
+          items:
+            $ref: '#/components/schemas/EdLog'
+
+    HmlrLogOperation:
+      type: string
+      enum:
+        - create
+        - read
+        - update
+        - delete
+        - search
+        - init
+        - finish
+
+    ErrorLogModel:
+      title: Модель лога для ошибки
+      type: object
+      properties:
+        message:
+          type: string
+        field:
+          type: string
+        code:
+          type: string
+        level:
+          type: string
+
+    EdLog:
+      title: Модель лога для издания
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        author:
+          type: string
+        isbn:
+          type: string
+        year:
+          type: string
+        ownerId:
+          type: string
+        permissions:
+          type: array
+          uniqueItems: true
+          items:
+            type: string
+
+    EdFilterLog:
+      title: Модель лога фильтра
+      properties:
+        searchString:
+          type: string
+        ownerId:
+          type: string
+        title:
+          type: string
+        author:
+          type: string
+        isbn:
+          type: string
