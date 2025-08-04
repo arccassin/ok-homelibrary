@@ -1,4 +1,4 @@
-package otus.build.plugin
+package com.otus.otuskotlin.homelibrary.plugin
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project

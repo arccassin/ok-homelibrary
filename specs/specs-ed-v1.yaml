@@ -1,0 +1,417 @@
+openapi: 3.0.3
+info:
+  title: "Home library ${VERSION_APP}"
+  description: This is a place where numismatist can meat coin information
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080/v1
+tags:
+  - name: ed
+    description: Информация о издании
+paths:
+  /ed/create:
+    post:
+      tags:
+        - ed
+      summary: Create ed
+      operationId: edCreate
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EdCreateRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdCreateResponse'
+  /ed/read:
+    post:
+      tags:
+        - ed
+      summary: Read ed
+      operationId: edRead
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EdReadRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdReadResponse'
+  /ed/update:
+    post:
+      tags:
+        - ed
+      summary: Update ed
+      operationId: edUpdate
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EdUpdateRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdUpdateResponse'
+  /ed/delete:
+    post:
+      tags:
+        - ed
+      summary: Delete ed
+      operationId: edDelete
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EdDeleteRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdDeleteResponse'
+  /ed/search:
+    post:
+      tags:
+        - ed
+      summary: Search ed
+      operationId: edSearch
+      requestBody:
+        description: Request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EdSearchRequest'
+        required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdSearchResponse'
+
+components:
+  schemas:
+
+    IRequest:
+      type: object
+      description: Базовый интерфейс для всех запросов
+      properties:
+        requestType:
+          type: string
+          description: Поле-дескриминатор для вычисления типа запроса
+          example: create
+      discriminator:
+        propertyName: requestType
+        mapping:
+          create: '#/components/schemas/EdCreateRequest'
+          read:   '#/components/schemas/EdReadRequest'
+          update: '#/components/schemas/EdUpdateRequest'
+          delete: '#/components/schemas/EdDeleteRequest'
+          search: '#/components/schemas/EdSearchRequest'
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        group:
+          type: string
+        field:
+          type: string
+        message:
+          type: string
+
+    ResponseResult:
+      type: string
+      enum:
+        - success
+        - error
+
+    IResponse:
+      type: object
+      description: Базовый интерфейс для всех ответов
+      properties:
+        responseType:
+          type: string
+          description: Поле-дескриминатор для вычисления типа запроса
+          example: create
+        result:
+          $ref: '#/components/schemas/ResponseResult'
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+
+      discriminator:
+        propertyName: responseType
+        mapping:
+          create: '#/components/schemas/EdCreateResponse'
+          read:   '#/components/schemas/EdReadResponse'
+          update: '#/components/schemas/EdUpdateResponse'
+          delete: '#/components/schemas/EdDeleteResponse'
+          search: '#/components/schemas/EdSearchResponse'
+          init: '#/components/schemas/EdInitResponse'
+
+
+    UserId:
+      type: string
+      description: Идентификатор пользователя
+    EdId:
+      type: string
+      description: Идентификатор издания
+    EdLock:
+      type: string
+      description: Версия оптимистичной блокировки
+    Title:
+      type: string
+      description: Заголовок издания
+    Author:
+      type: string
+      description: Автор издания
+    ISBN:
+      type: string
+      description: Код ISBN издания
+
+    BaseEd:
+      type: object
+      description: Объект описывает свойства, одинаковые для create и update
+      properties:
+        title:
+          type: string
+          $ref: '#/components/schemas/Title'
+        author:
+          type: string
+          $ref: '#/components/schemas/Author'
+        isbn:
+          type: string
+          $ref: '#/components/schemas/ISBN'
+        year:
+          type: string
+          pattern: "[0-9]{4}"
+          description: Год выпуска
+
+    EdInitResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+
+    EdCreateObject:
+      allOf:
+        - $ref: '#/components/schemas/BaseEd'
+
+    EdCreateRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/EdRequestDebug'
+        - type: object
+          properties:
+            ed:
+              $ref: '#/components/schemas/EdCreateObject'
+
+    EdReadObject:
+      allOf:
+        - type: object
+          properties:
+            id:
+              $ref: '#/components/schemas/EdId'
+
+    EdReadRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/EdRequestDebug'
+        - type: object
+          properties:
+            ed:
+              $ref: '#/components/schemas/EdReadObject'
+
+    EdUpdateObject:
+      allOf:
+        - $ref: '#/components/schemas/BaseEd'
+        - type: object
+          properties:
+            id:
+              $ref: '#/components/schemas/EdId'
+            lock:
+              $ref: '#/components/schemas/EdLock'
+
+    EdUpdateRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/EdRequestDebug'
+        - type: object
+          properties:
+            ed:
+              $ref: '#/components/schemas/EdUpdateObject'
+
+    EdDeleteObject:
+      allOf:
+        - type: object
+          properties:
+            id:
+              $ref: '#/components/schemas/EdId'
+            lock:
+              $ref: '#/components/schemas/EdLock'
+
+    EdDeleteRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/EdRequestDebug'
+        - type: object
+          properties:
+            ed:
+              $ref: '#/components/schemas/EdDeleteObject'
+
+    EdSearchFilter:
+      type: object
+      description: Набор фильтров для поиска
+      properties:
+        searchString:
+          type: string
+          description: Поисковая строка, которая будет искаться в изданиях
+        ownerId:
+          $ref: '#/components/schemas/UserId'
+        title:
+          $ref: '#/components/schemas/Title'
+        author:
+          $ref: '#/components/schemas/Author'
+        isbn:
+          $ref: '#/components/schemas/ISBN'
+
+    EdSearchRequest:
+      allOf:
+        - $ref: '#/components/schemas/IRequest'
+        - $ref: '#/components/schemas/EdRequestDebug'
+        - type: object
+          properties:
+            edFilter:
+              $ref: '#/components/schemas/EdSearchFilter'
+
+    EdResponseObject:
+      allOf:
+        - $ref: '#/components/schemas/BaseEd'
+        - type: object
+          description: Объект, который возвращается в ответе бэкенда
+          properties:
+            id:
+              $ref: '#/components/schemas/EdId'
+            ownerId:
+              $ref: '#/components/schemas/UserId'
+            lock:
+              $ref: '#/components/schemas/EdLock'
+            permissions:
+              type: array
+              uniqueItems: true
+              items:
+                $ref: '#/components/schemas/EdPermissions'
+
+    EdPermissions:
+      type: string
+      description: Доступы для клиента для операций над изданием
+      enum:
+        - read
+        - update
+        - delete
+        - makeVisiblePublic
+        - makeVisibleOwn
+        - makeVisibleGroup
+
+    EdResponseSingle:
+      allOf:
+        - type: object
+          description: Ответ с одним объектом издания
+          properties:
+            ed:
+              $ref: '#/components/schemas/EdResponseObject'
+
+    EdResponseMulti:
+      allOf:
+        - type: object
+          description: Список найденных объектов
+          properties:
+            eds:
+              type: array
+              items:
+                $ref: '#/components/schemas/EdResponseObject'
+
+    EdCreateResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/EdResponseSingle'
+
+    EdReadResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/EdResponseSingle'
+
+    EdUpdateResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/EdResponseSingle'
+
+    EdDeleteResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/EdResponseSingle'
+
+    EdSearchResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
+        - $ref: '#/components/schemas/EdResponseMulti'
+
+    # STUBS ======================
+    EdRequestDebugMode:
+      type: string
+      enum:
+        - prod
+        - test
+        - stub
+
+    EdRequestDebug:
+      type: object
+      properties:
+        debug:
+          $ref: '#/components/schemas/EdDebug'
+
+    EdDebug:
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/EdRequestDebugMode'
+        stub:
+          $ref: '#/components/schemas/EdRequestDebugStubs'
+
+    EdRequestDebugStubs:
+      type: string
+      description: Перечисления всех стабов
+      enum:
+        - success
+        - notFound
+        - badId
+        - badTitle
+        - badDescription
+        - badVisibility
+        - cannotDelete
+        - badSearchString
