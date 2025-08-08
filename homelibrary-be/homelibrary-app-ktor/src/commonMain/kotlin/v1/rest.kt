@@ -6,10 +6,8 @@ import io.ktor.server.application.call
 import io.ktor.server.routing.post
 import io.ktor.server.routing.route
 
-fun Route.ed(appSettings: HmlrAppSettings) {
-
-    route("basic") {
-
+fun Route.v1Ed(appSettings: HmlrAppSettings) {
+    route("ed") {
         post("create") {
             call.createEd(appSettings)
         }

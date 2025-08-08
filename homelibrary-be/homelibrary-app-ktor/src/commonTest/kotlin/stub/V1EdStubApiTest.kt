@@ -35,14 +35,14 @@ class V1EdStubApiTest {
     ) { response ->
         val responseObj = response.body<EdCreateResponse>()
         assertEquals(200, response.status.value)
-        assertEquals("111", responseObj.ed?.id)
+        assertEquals("666", responseObj.ed?.id)
     }
 
     @Test
     fun read() = v1EdTestApplication(
         func = "read",
         request = EdReadRequest(
-            ed = EdReadObject("111"),
+            ed = EdReadObject("666"),
             debug = EdDebug(
                 mode = EdRequestDebugMode.STUB,
                 stub = EdRequestDebugStubs.SUCCESS
@@ -51,7 +51,7 @@ class V1EdStubApiTest {
     ) { response ->
         val responseObj = response.body<EdReadResponse>()
         assertEquals(200, response.status.value)
-        assertEquals("111", responseObj.ed?.id)
+        assertEquals("666", responseObj.ed?.id)
     }
 
     @Test
@@ -59,7 +59,7 @@ class V1EdStubApiTest {
         func = "update",
         request = EdUpdateRequest(
             ed = EdUpdateObject(
-                id = "111",
+                id = "666",
                 title = "Бесы",
                 author = "Федор Достоевский",
                 isbn = "2312312123123",
@@ -73,7 +73,7 @@ class V1EdStubApiTest {
     ) { response ->
         val responseObj = response.body<EdUpdateResponse>()
         assertEquals(200, response.status.value)
-        assertEquals("111", responseObj.ed?.id)
+        assertEquals("666", responseObj.ed?.id)
         assertEquals("Бесы", responseObj.ed?.title)
         assertEquals("Федор Достоевский", responseObj.ed?.author)
         assertEquals("2312312123123", responseObj.ed?.isbn)
@@ -85,7 +85,7 @@ class V1EdStubApiTest {
         func = "delete",
         request = EdDeleteRequest(
             ed = EdDeleteObject(
-                id = "111",
+                id = "666",
                 lock = "123"
             ),
             debug = EdDebug(
@@ -96,7 +96,7 @@ class V1EdStubApiTest {
     ) { response ->
         val responseObj = response.body<EdDeleteResponse>()
         assertEquals(200, response.status.value)
-        assertEquals("111", responseObj.ed?.id)
+        assertEquals("666", responseObj.ed?.id)
     }
 
     @Test
@@ -112,7 +112,7 @@ class V1EdStubApiTest {
     ) { response ->
         val responseObj = response.body<EdSearchResponse>()
         assertEquals(200, response.status.value)
-        assertEquals("111-01", responseObj.eds?.first()?.id)
+        assertEquals("d-666-01", responseObj.eds?.first()?.id)
     }
 
     private inline fun <reified T: IRequest> v1EdTestApplication(
@@ -127,7 +127,7 @@ class V1EdStubApiTest {
             }
         }
 
-        val response = client.post("/ed/basic/$func") {
+        val response = client.post("/v1/ed/$func") {
             contentType(ContentType.Application.Json)
             setBody(request)
         }

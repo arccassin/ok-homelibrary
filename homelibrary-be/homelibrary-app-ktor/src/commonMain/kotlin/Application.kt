@@ -9,7 +9,7 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import com.otus.otuskotlin.homelibrary.api.v1.apiV1Mapper
 import com.otus.otuskotlin.homelibrary.app.ktor.plugins.initAppSettings
-import com.otus.otuskotlin.homelibrary.app.ktor.v1.ed
+import com.otus.otuskotlin.homelibrary.app.ktor.v1.v1Ed
 
 fun Application.module(
     appSettings: HmlrAppSettings = initAppSettings()
@@ -33,11 +33,11 @@ fun Application.module(
         get("/") {
             call.respondText("Hello, world!")
         }
-        route("ci") {
+        route("v1") {
             install(ContentNegotiation) {
                 json(apiV1Mapper)
             }
-            ed(appSettings)
+            v1Ed(appSettings)
         }
     }
 }
