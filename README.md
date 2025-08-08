@@ -32,7 +32,50 @@ HomeLibrary -- сервис для библиофилов и букинисто�
 
 # Структура проекта
 
+### Плагины Gradle сборки проекта
+
+1. [build-plugin](build-plugin) Модуль с плагинами
+2. [BuildPluginJvm](build-plugin/src/main/kotlin/BuildPluginJvm.kt) Плагин для сборки проектов JVM
+2. [BuildPluginMultiplarform](build-plugin/src/main/kotlin/BuildPluginMultiplatform.kt) Плагин для сборки
+   мультиплатформенных проектов
+
+## Проектные модули
+
 ### Транспортные модели, API
 
 1. [specs](specs) - описание API в форме OpenAPI-спецификаций
 2. [homelibrary-api-v1-kmp](homelibrary-be/homelibrary-api-v1-kmp) - Генерация транспортных моделей с KMP
+3. [homelibrary-common](homelibrary-be/homelibrary-common) - модуль с общими классами для модулей проекта 
+   (внутренние модели и контекст)
+4. [homelibrary-api-log](homelibrary-be/homelibrary-api-log) - Маппер между внутренними моделями и
+   моделями логирования
+
+### Фреймворки и транспорты
+
+1. [homelibrary-app-ktor](homelibrary-be/homelibrary-app-ktor) - Приложение на Ktor
+2. [homelibrary-app-kafka](homelibrary-be/homelibrary-app-kafka) - Микросервис на Kafka
+
+### Модули бизнес-логики
+
+1. [homelibrary-stubs](homelibrary-be/homelibrary-stubs) - Стабы для ответов сервиса
+2. [homelibrary-biz](homelibrary-be/homelibrary-biz) - Модуль бизнес-логики приложения: обслуживание стабов,
+   валидация, работа с БД
+
+## Библиотеки
+
+### Мониторинг и логирование
+
+1. [deploy](deploy) - Инструменты мониторинга и деплоя
+2. [homelibrary-lib-logging-common](homelibrary-libs/homelibrary-lib-logging-common) - Общие объявления для
+   логирования
+3. [homelibrary-lib-logging-logback](homelibrary-libs/homelibrary-lib-logging-logback) - Библиотека логирования
+   на базе библиотеки Logback
+4. [homelibrary-lib-logging-kermit](homelibrary-libs/homelibrary-lib-logging-kermit) - Библиотека логирования
+   на базе библиотеки Kermit
+
+## Тестирование
+
+### Сквозные/интеграционные тесты
+
+1. [homelibrary-e2e-be](homelibrary-tests/homelibrary-e2e-be) - Сквозные/интеграционные тесты для бэкенда
+   системы //TODO

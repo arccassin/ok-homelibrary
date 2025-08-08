@@ -26,3 +26,4 @@ plugins {
 
 include(":homelibrary-lib-logging-common")
 include(":homelibrary-lib-logging-logback")
+include(":homelibrary-lib-logging-kermit")

@@ -693,7 +693,7 @@
         "use.refresh.tokens": "true",
         "exclude.session.state.from.auth.response": "false",
         "jwt.credential.certificate": "MIICvzCCAacCBgGEayQGdzANBgkqhkiG9w0BAQsFADAjMSEwHwYDVQQDDBhvdHVzLW1hcmtldHBsYWNlLXNlcnZpY2UwHhcNMjIxMTEyMDkxODUzWhcNMzIxMTEyMDkyMDMzWjAjMSEwHwYDVQQDDBhvdHVzLW1hcmtldHBsYWNlLXNlcnZpY2UwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCIxAetegY1Yl8GD0zCUboJVflioxgkU65nbHOZtHUJDNlv4hk4YKGcELPZr226tz/468xFfPVeSWmzMVRnZYa5Ure54M27jh/sPfne0Wqy5YwD2XJy34CU3tFdn5dGuC4WOFcxkd8fbOKLLu3yi25tKR9VYXHDXQ6vuGvras5Rpn+HjHUs+1kSsNEvaBrEeG/MvxI44jbqYz4srD+ZniHB5R9rfluyewADx1/3/HUEtzp1m34oWKXXMP8NccYDqf8U2IQrjxV0hruQDirEp3W2iAox2N5pcLXCMVD3DYFkOf15Pp3zDPVRcbD4+LhvT5cDLFtwPosf+8xcQVOaM7aRAgMBAAEwDQYJKoZIhvcNAQELBQADggEBADR5bl0/TWpgPsCS8ug/HaX2w5SFnQggdlfOoALgXzcNFsVmt1apz81uOfjC2+mDLeaUufGVC7DEwxHG/y6QXhmeYua9cxb3Lbqv93eTolkPBB44nkHI3g/afdOoQH4feHsJt4nmhGRr5APFazPHRgngEpk+soTgUrmQponohCskH/D/Gt69fo9T6jq9kwQ67FIKhXy/KgDZB1yJj3Rh6TrGxns/g/uw/mPLjuzDOpVBbH7fD83SMhMsKJwxeapHGnj7Voj04iprv9UfEXdwrsCOPD5XyjAwqyiqvOFA5nBQrDOv1Ii8CzK+XerP+d5ZVbzlyur6mGWHVumE5/UUeb8=",
-        "oidc.ciba.grant.enabled": "false",
+        "oidc.Eda.grant.enabled": "false",
         "saml.artifact.binding": "false",
         "backchannel.logout.session.required": "true",
         "client_credentials.use_refresh_token": "false",
@@ -2212,9 +2212,9 @@
   "clientAuthenticationFlow": "clients",
   "dockerAuthenticationFlow": "docker auth",
   "attributes": {
-    "cibaBackchannelTokenDeliveryMode": "poll",
-    "cibaExpiresIn": "120",
-    "cibaAuthRequestedUserHint": "login_hint",
+    "EdaBackchannelTokenDeliveryMode": "poll",
+    "EdaExpiresIn": "120",
+    "EdaAuthRequestedUserHint": "login_hint",
     "oauth2DeviceCodeLifespan": "600",
     "clientOfflineSessionMaxLifespan": "0",
     "oauth2DevicePollingInterval": "5",
@@ -2223,7 +2223,7 @@
     "parRequestUriLifespan": "60",
     "clientSessionMaxLifespan": "0",
     "clientOfflineSessionIdleTimeout": "0",
-    "cibaInterval": "5"
+    "EdaInterval": "5"
   },
   "keycloakVersion": "16.1.1",
   "userManagedAccessAllowed": false,
