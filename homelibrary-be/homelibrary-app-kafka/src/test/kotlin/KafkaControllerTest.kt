@@ -37,7 +37,7 @@ class KafkaControllerTest {
                             ed = EdCreateObject(
                                 title = "Бесы",
                                 author = "Федор Достоевский",
-                                isbn = "2312312123123",
+                                isbn = "978-3-16-148410-0",
                                 year = "1984"
                             ),
                             debug = EdDebug(
@@ -63,7 +63,7 @@ class KafkaControllerTest {
         assertEquals(outputTopic, message.topic())
         assertEquals("Бесы", result.ed?.title)
         assertEquals("Федор Достоевский", result.ed?.author)
-        assertEquals("2312312123123", result.ed?.isbn)
+        assertEquals("978-3-16-148410-0", result.ed?.isbn)
         assertEquals("1984", result.ed?.year)
     }
 

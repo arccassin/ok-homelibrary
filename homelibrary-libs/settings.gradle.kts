@@ -9,7 +9,7 @@ dependencyResolutionManagement {
 }
 
 pluginManagement {
-    includeBuild("../build-plugin")
+    includeBuild("../backend-plugin")
     plugins {
         id("build-jvm") apply false
         id("build-kmp") apply false
@@ -27,3 +27,4 @@ plugins {
 include(":homelibrary-lib-logging-common")
 include(":homelibrary-lib-logging-logback")
 include(":homelibrary-lib-logging-kermit")
+include(":homelibrary-lib-cor")

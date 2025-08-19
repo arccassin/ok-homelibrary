@@ -24,7 +24,7 @@ class V1EdStubApiTest {
             ed = EdCreateObject(
                 title = "Бесы",
                 author = "Федор Достоевский",
-                isbn = "2312312123123",
+                isbn = "978-3-16-148410-0",
                 year = "1984"
             ),
             debug = EdDebug(
@@ -62,7 +62,7 @@ class V1EdStubApiTest {
                 id = "666",
                 title = "Бесы",
                 author = "Федор Достоевский",
-                isbn = "2312312123123",
+                isbn = "978-3-16-148410-0",
                 year = "1984"
             ),
             debug = EdDebug(
@@ -76,7 +76,7 @@ class V1EdStubApiTest {
         assertEquals("666", responseObj.ed?.id)
         assertEquals("Бесы", responseObj.ed?.title)
         assertEquals("Федор Достоевский", responseObj.ed?.author)
-        assertEquals("2312312123123", responseObj.ed?.isbn)
+        assertEquals("978-3-16-148410-0", responseObj.ed?.isbn)
         assertEquals("1984", responseObj.ed?.year)
     }
 

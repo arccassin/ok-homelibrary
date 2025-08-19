@@ -17,11 +17,14 @@ fun HmlrContext.toLog(logId: String) = CommonLogModel(
 private fun HmlrContext.toHmlrLog(): HmlrLogModel? {
     val edNone = HmlrEd()
     return HmlrLogModel(
+        state = state.toLog(),
         requestId = requestId.takeIf { it != HmlrRequestId.NONE }?.asString(),
         requestEd = edRequest.takeIf { it != edNone }?.toLog(),
+        validatedEd = edValidated.takeIf { it != edNone }?.toLog(),
         responseEd = edResponse.takeIf { it != edNone }?.toLog(),
         responseEds = edsResponse.takeIf { it.isNotEmpty() }?.filter { it != edNone }?.map { it.toLog() },
         requestFilter = edFilterRequest.takeIf { it != HmlrEdFilter() }?.toLog(),
+        validatedFilter = edFilterValidated.takeIf { it != HmlrEdFilter() }?.toLog(),
     ).takeIf { it != HmlrLogModel() }
 }
 
@@ -45,3 +48,10 @@ private fun HmlrEd.toLog() = EdLog(
     ownerId = ownerId.takeIf { it != HmlrUserId.NONE }?.asString(),
     permissions = permissionsClient.takeIf { it.isNotEmpty() }?.map { it.name }?.toSet(),
 )
+
+private fun HmlrState.toLog() : EdState = when(this) {
+    HmlrState.NONE -> EdState.NONE
+    HmlrState.RUNNING -> EdState.RUNNING
+    HmlrState.FAILING -> EdState.FAILING
+    HmlrState.FINISHING -> EdState.FINISHED
+}

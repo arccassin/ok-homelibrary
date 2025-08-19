@@ -6,4 +6,12 @@ data class HmlrEdFilter(
     var title: HmlrEdTitle = HmlrEdTitle.NONE,
     var author: HmlrEdAuthor = HmlrEdAuthor.NONE,
     var isbn: HmlrEdIsbn = HmlrEdIsbn.NONE,
-)
+) {
+    fun deepCopy(): HmlrEdFilter = copy()
+
+    fun isEmpty() = this == NONE
+
+    companion object {
+        private val NONE = HmlrEdFilter()
+    }
+}
