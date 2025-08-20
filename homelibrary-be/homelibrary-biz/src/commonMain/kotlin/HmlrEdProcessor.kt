@@ -54,9 +54,9 @@ class HmlrEdProcessor(
                 stubNoCase("Ошибка: запрошенный стаб недопустим")
             }
             validation {
-                validateTitle("Валидация названия", REG_EXP_CONTENT)
-                validateAuthor("Валидация автора", REG_EXP_CONTENT)
-                validateIsbn("Валидация ISBN",  Regex("""^[0-9]([0-9]|-(?!-))+$"""))
+                validateTitle("Валидация названия")
+                validateAuthor("Валидация автора")
+                validateIsbn("Валидация ISBN")
                 validateYear("Валидация года")
             }
         }
@@ -68,7 +68,7 @@ class HmlrEdProcessor(
                 stubNoCase("Ошибка: запрошенный стаб недопустим")
             }
             validation {
-                validateId("Проверка id", REG_EXP_ID)
+                validateId("Проверка id")
             }
         }
         operation("Изменить издание", HmlrCommand.UPDATE) {
@@ -83,12 +83,12 @@ class HmlrEdProcessor(
                 stubNoCase("Ошибка: запрошенный стаб недопустим")
             }
             validation {
-                validateTitle("Валидация названия", REG_EXP_CONTENT)
-                validateAuthor("Валидация автора", REG_EXP_CONTENT)
-                validateIsbn("Валидация ISBN",  Regex("""^[0-9]([0-9]|-(?!-))+$"""))
+                validateTitle("Валидация названия")
+                validateAuthor("Валидация автора")
+                validateIsbn("Валидация ISBN")
                 validateYear("Валидация года")
-                validateId("Проверка id", REG_EXP_ID)
-                validateLock("Проверка lock", REG_EXP_ID)
+                validateId("Проверка id")
+                validateLock("Проверка lock")
             }
         }
         operation("Удалить издание", HmlrCommand.DELETE) {
@@ -100,8 +100,8 @@ class HmlrEdProcessor(
                 stubNoCase("Ошибка: запрошенный стаб недопустим")
             }
             validation {
-                validateId("Проверка id", REG_EXP_ID)
-                validateLock("Проверка lock", REG_EXP_ID)
+                validateId("Проверка id")
+                validateLock("Проверка lock")
             }
         }
         operation("Поиск изданий", HmlrCommand.SEARCH) {

@@ -49,7 +49,7 @@ class ValidateTitleTest {
 
     companion object {
         val chain = rootChain<HmlrContext> {
-            validateTitle("Валидация title", REG_EXP_ID)
+            validateTitle("Валидация title")
         }.build()
     }
 }
