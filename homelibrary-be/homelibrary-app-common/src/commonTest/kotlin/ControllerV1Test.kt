@@ -14,7 +14,7 @@ class ControllerV1Test {
         ed = EdCreateObject(
             title = "Бесы",
             author = "Федор Достоевский",
-            isbn = "2312312123123",
+            isbn = "978-3-16-148410-0",
             year = "1984"
         ),
         debug = EdDebug(mode = EdRequestDebugMode.STUB, stub = EdRequestDebugStubs.SUCCESS)

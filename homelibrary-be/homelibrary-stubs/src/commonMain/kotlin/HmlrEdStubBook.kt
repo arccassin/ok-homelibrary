@@ -8,7 +8,7 @@ object HmlrEdStubBook {
             id = HmlrEdId("666"),
             title = HmlrEdTitle("Бесы"),
             author = HmlrEdAuthor("Федор Достоевский"),
-            isbn = HmlrEdIsbn("2312312123123"),
+            isbn = HmlrEdIsbn("978-3-16-148410-0"),
             year = "1984",
             ownerId = HmlrUserId("user-1"),
             lock = HmlrEdLock("123"),

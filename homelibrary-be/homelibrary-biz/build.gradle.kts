@@ -10,8 +10,11 @@ kotlin {
             dependencies {
                 implementation(kotlin("stdlib-common"))
 
+                implementation(libs.cor)
+
                 implementation(project(":homelibrary-common"))
                 implementation(project(":homelibrary-stubs"))
+                implementation(project(":homelibrary-api-log"))
             }
         }
         commonTest {
@@ -20,6 +23,7 @@ kotlin {
                 implementation(kotlin("test-annotations-common"))
 
                 api(libs.coroutines.test)
+                implementation(project(":homelibrary-api-log"))
             }
         }
         jvmMain {

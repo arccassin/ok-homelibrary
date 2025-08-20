@@ -38,13 +38,19 @@ components:
       title: Модель лога для микросервиса HomeLibrary
       type: object
       properties:
+        state:
+          $ref: '#/components/schemas/EdState'
         requestId:
           type: string
         operation:
           $ref: '#/components/schemas/HmlrLogOperation'
         requestEd:
           $ref: '#/components/schemas/EdLog'
+        validatedEd:
+          $ref: '#/components/schemas/EdLog'
         requestFilter:
+          $ref: '#/components/schemas/EdFilterLog'
+        validatedFilter:
           $ref: '#/components/schemas/EdFilterLog'
         responseEd:
           $ref: '#/components/schemas/EdLog'
@@ -52,7 +58,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/EdLog'
-
+    EdState:
+      type: string
+      enum:
+        - running
+        - failing
+        - finished
+        - none
     HmlrLogOperation:
       type: string
       enum:

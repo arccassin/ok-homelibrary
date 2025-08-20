@@ -38,8 +38,9 @@ private fun EdDebug?.transportToStubCase(): HmlrStubs = when (this?.stub) {
     EdRequestDebugStubs.NOT_FOUND -> HmlrStubs.NOT_FOUND
     EdRequestDebugStubs.BAD_ID -> HmlrStubs.BAD_ID
     EdRequestDebugStubs.BAD_TITLE -> HmlrStubs.BAD_TITLE
-    EdRequestDebugStubs.BAD_DESCRIPTION -> HmlrStubs.BAD_DESCRIPTION
-    EdRequestDebugStubs.BAD_VISIBILITY -> HmlrStubs.BAD_VISIBILITY
+    EdRequestDebugStubs.BAD_AUTHOR -> HmlrStubs.BAD_AUTHOR
+    EdRequestDebugStubs.BAD_ISBN -> HmlrStubs.BAD_ISBN
+    EdRequestDebugStubs.BAD_YEAR -> HmlrStubs.BAD_YEAR
     EdRequestDebugStubs.CANNOT_DELETE -> HmlrStubs.CANNOT_DELETE
     EdRequestDebugStubs.BAD_SEARCH_STRING -> HmlrStubs.BAD_SEARCH_STRING
     null -> HmlrStubs.NONE

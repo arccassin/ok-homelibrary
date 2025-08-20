@@ -411,7 +411,8 @@ components:
         - notFound
         - badId
         - badTitle
-        - badDescription
-        - badVisibility
+        - badAuthor
+        - badIsbn
+        - badYear
         - cannotDelete
         - badSearchString
