@@ -2,6 +2,7 @@ package com.otus.otuskotlin.homelibrary.common
 
 import kotlinx.datetime.Instant
 import com.otus.otuskotlin.homelibrary.common.models.*
+import com.otus.otuskotlin.homelibrary.common.repo.IRepoEd
 import com.otus.otuskotlin.homelibrary.common.stubs.HmlrStubs
 import com.otus.otuskotlin.homelibrary.logging.common.IHlLogWrapper
 
@@ -26,4 +27,10 @@ data class HmlrContext(
 
     var edFilterRequest: HmlrEdFilter = HmlrEdFilter(),
     var edFilterValidated: HmlrEdFilter = HmlrEdFilter(),
+
+    var edRepo: IRepoEd = IRepoEd.NONE,
+    var edRepoRead: HmlrEd = HmlrEd(), // То, что прочитали из репозитория
+    var edRepoPrepare: HmlrEd = HmlrEd(), // То, что готовим для сохранения в БД
+    var edRepoDone: HmlrEd = HmlrEd(),  // Результат, полученный из БД
+    var edsRepoDone: MutableList<HmlrEd> = mutableListOf(),
     )

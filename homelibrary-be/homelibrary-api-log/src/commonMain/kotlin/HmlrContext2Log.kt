@@ -23,6 +23,9 @@ private fun HmlrContext.toHmlrLog(): HmlrLogModel? {
         validatedEd = edValidated.takeIf { it != edNone }?.toLog(),
         responseEd = edResponse.takeIf { it != edNone }?.toLog(),
         responseEds = edsResponse.takeIf { it.isNotEmpty() }?.filter { it != edNone }?.map { it.toLog() },
+        repoReadEd = edRepoRead.takeIf { it != edNone }?.toLog(),
+        repoPrepareEd = edRepoPrepare.takeIf { it != edNone }?.toLog(),
+        repoDoneEd = edRepoDone.takeIf { it != edNone }?.toLog(),
         requestFilter = edFilterRequest.takeIf { it != HmlrEdFilter() }?.toLog(),
         validatedFilter = edFilterValidated.takeIf { it != HmlrEdFilter() }?.toLog(),
     ).takeIf { it != HmlrLogModel() }

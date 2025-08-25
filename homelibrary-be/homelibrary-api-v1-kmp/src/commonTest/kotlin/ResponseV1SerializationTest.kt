@@ -19,7 +19,7 @@ class ResponseV1SerializationTest {
 
     @Test
     fun serialize() {
-//        val json = apiV1Mapper.encodeToString(AdRequestSerializer1, request)
+//        val json = apiV1Mapper.encodeToString(EdRequestSerializer1, request)
 //        val json = apiV1Mapper.encodeToString(RequestSerializers.create, request)
         val json = apiV1Mapper.encodeToString(response)
 

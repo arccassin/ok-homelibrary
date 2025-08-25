@@ -7,18 +7,18 @@ import com.otus.otuskotlin.homelibrary.api.v1.models.EdUpdateObject
 import com.otus.otuskotlin.homelibrary.common.models.HmlrEd
 import com.otus.otuskotlin.homelibrary.common.models.HmlrEdLock
 
-fun HmlrEd.toTransportCreateAd() = EdCreateObject(
+fun HmlrEd.toTransportcreateEd() = EdCreateObject(
     title = title.toTransportEd(),
     author = author.toTransportEd(),
     isbn = isbn.toTransportEd(),
     year = year,
     )
 
-fun HmlrEd.toTransportReadAd() = EdReadObject(
+fun HmlrEd.toTransportreadEd() = EdReadObject(
     id = id.toTransportEd()
 )
 
-fun HmlrEd.toTransportUpdateAd() = EdUpdateObject(
+fun HmlrEd.toTransportupdateEd() = EdUpdateObject(
     id = id.toTransportEd(),
     title = title.toTransportEd(),
     author = author.toTransportEd(),
@@ -29,7 +29,7 @@ fun HmlrEd.toTransportUpdateAd() = EdUpdateObject(
 
 internal fun HmlrEdLock.toTransportEd() = takeIf { it != HmlrEdLock.NONE }?.asString()
 
-fun HmlrEd.toTransportDeleteAd() = EdDeleteObject(
+fun HmlrEd.toTransportdeleteEd() = EdDeleteObject(
     id = id.toTransportEd(),
     lock = lock.toTransportEd(),
 )

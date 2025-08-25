@@ -24,6 +24,9 @@ kotlin {
 
                 api(libs.coroutines.test)
                 implementation(project(":homelibrary-api-log"))
+
+                implementation(projects.homelibraryRepoTests)
+                implementation(projects.homelibraryRepoInmemory)
             }
         }
         jvmMain {

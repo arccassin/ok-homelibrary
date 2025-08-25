@@ -52,6 +52,12 @@ components:
           $ref: '#/components/schemas/EdFilterLog'
         validatedFilter:
           $ref: '#/components/schemas/EdFilterLog'
+        repoReadEd:
+          $ref: '#/components/schemas/EdLog'
+        repoPrepareEd:
+          $ref: '#/components/schemas/EdLog'
+        repoDoneEd:
+          $ref: '#/components/schemas/EdLog'
         responseEd:
           $ref: '#/components/schemas/EdLog'
         responseEds:
@@ -110,6 +116,8 @@ components:
           uniqueItems: true
           items:
             type: string
+        lock:
+          type: string
 
     EdFilterLog:
       title: Модель лога фильтра

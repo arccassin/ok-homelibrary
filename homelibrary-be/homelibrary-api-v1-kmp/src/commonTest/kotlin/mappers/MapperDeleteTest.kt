@@ -17,7 +17,7 @@ class MapperDeleteTest {
                 mode = EdRequestDebugMode.STUB,
                 stub = EdRequestDebugStubs.SUCCESS,
             ),
-            ed = HmlrEdStub.get().toTransportDeleteAd(),
+            ed = HmlrEdStub.get().toTransportdeleteEd(),
         )
 
         val context = HmlrContext()

@@ -16,7 +16,7 @@ class MapperCreateTest {
                 mode = EdRequestDebugMode.STUB,
                 stub = EdRequestDebugStubs.SUCCESS,
             ),
-            ed = HmlrEdStub.get().toTransportCreateAd(),
+            ed = HmlrEdStub.get().toTransportcreateEd(),
         )
         val expected = HmlrEdStub.prepareResult {
             id = HmlrEdId.NONE

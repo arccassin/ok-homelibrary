@@ -5,4 +5,7 @@ import io.ktor.server.application.*
 import com.otus.otuskotlin.homelibrary.logging.kermit.hlLoggerKermit
 
 actual fun Application.getLoggerProviderConf(): HlLoggerProvider =
-    HlLoggerProvider { hlLoggerKermit(it) }
+    when (val mode = environment.config.propertyOrNull("ktor.logger")?.getString()) {
+        "kmp", null -> HlLoggerProvider { hlLoggerKermit(it) }
+        else -> throw Exception("Logger $mode is not allowed. Additted values are kmp and socket")
+    }
