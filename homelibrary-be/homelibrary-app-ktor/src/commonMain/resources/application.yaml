@@ -24,3 +24,15 @@ ktor:
 #  logger: socket
 #  socketLogger:
 #    port: 24224
+
+homelibrary:
+  repository:
+    test: "inmemory"
+    prod: "$DB_TYPE_PROD:inmemory"
+    psql:
+      schema: public
+      database: "$HMLREDS_DB:homelibrary-eds"
+      host: "HMLREDS_HOST:localhost"
+      port: "$HMLREDS_PORT:5432"
+      user: "$HMLREDS_USER:postgres"
+      password: "$HMLREDS_PASS:homelibrary-pass"

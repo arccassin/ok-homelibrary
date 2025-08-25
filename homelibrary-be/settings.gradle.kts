@@ -34,3 +34,10 @@ include(":homelibrary-stubs")
 include(":homelibrary-biz")
 include(":homelibrary-app-ktor")
 include(":homelibrary-app-kafka")
+
+// DB
+include(":homelibrary-repo-common")
+include(":homelibrary-repo-inmemory")
+include(":homelibrary-repo-stubs")
+include(":homelibrary-repo-tests")
+include(":homelibrary-repo-pgjvm")

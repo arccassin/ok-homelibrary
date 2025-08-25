@@ -62,7 +62,7 @@ internal fun HmlrEd.toTransportEd(): EdResponseObject = EdResponseObject(
     year = year.takeIf { it.isNotBlank() },
     ownerId = ownerId.takeIf { it != HmlrUserId.NONE }?.asString(),
     permissions = permissionsClient.toTransportEd(),
-    lock = lock.takeIf { it != HmlrEdLock.NONE }?.asString()
+    lock = lock.toTransportEd()
 )
 
 internal fun HmlrEdId.toTransportEd() = takeIf { it != HmlrEdId.NONE }?.asString()

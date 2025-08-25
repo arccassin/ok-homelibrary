@@ -10,7 +10,9 @@ plugins {
 }
 rootProject.name = "homelibrary"
 
-includeBuild("ok-lessons")
+//includeBuild("ok-lessons")
 includeBuild("homelibrary-be")
 includeBuild("homelibrary-libs")
 includeBuild("backend-plugin")
+includeBuild("homelibrary-other")
+includeBuild("homelibrary-tests")

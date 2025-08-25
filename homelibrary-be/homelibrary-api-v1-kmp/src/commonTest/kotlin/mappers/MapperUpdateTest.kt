@@ -16,7 +16,7 @@ class MapperUpdateTest {
                 mode = EdRequestDebugMode.STUB,
                 stub = EdRequestDebugStubs.SUCCESS,
             ),
-            ed = HmlrEdStub.get().toTransportUpdateAd(),
+            ed = HmlrEdStub.get().toTransportupdateEd(),
         )
         val expected = HmlrEdStub.prepareResult {
             ownerId = HmlrUserId.NONE
