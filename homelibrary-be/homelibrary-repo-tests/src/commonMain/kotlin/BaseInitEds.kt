@@ -15,7 +15,7 @@ abstract class BaseInitEds(private val op: String): IInitObjects<HmlrEd> {
         title = HmlrEdTitle("$suf stub"),
         author = HmlrEdAuthor("$suf stub author"),
         isbn = HmlrEdIsbn("$suf stub isbn"),
-        year = "$suf stub year",
+        year = "198${suf.last()}",
         ownerId = ownerId,
         lock = lock,
     )
