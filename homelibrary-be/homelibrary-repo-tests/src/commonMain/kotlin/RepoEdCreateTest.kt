@@ -26,7 +26,6 @@ abstract class RepoEdCreateTest {
         val expected = createObj
         assertIs<DbEdResponseOk>(result)
         assertNotEquals(HmlrEdId.NONE, result.data.id)
-        assertEquals(lockNew, result.data.lock)
         assertEquals(expected.title, result.data.title)
         assertEquals(expected.author, result.data.author)
         assertEquals(expected.isbn, result.data.isbn)

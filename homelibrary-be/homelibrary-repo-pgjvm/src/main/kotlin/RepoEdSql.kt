@@ -30,10 +30,10 @@ class RepoEdSql(
         edTable.deleteAll()
     }
 
-    private fun saveObj(ad: HmlrEd): HmlrEd = transaction(conn) {
+    private fun saveObj(ed: HmlrEd): HmlrEd = transaction(conn) {
         val res = edTable
             .insert {
-                to(it, ad, randomUuid)
+                to(it, ed, randomUuid)
             }
             .resultedValues
             ?.map { edTable.from(it) }
