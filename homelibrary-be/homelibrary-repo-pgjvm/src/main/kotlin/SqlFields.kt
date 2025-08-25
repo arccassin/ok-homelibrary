@@ -9,7 +9,6 @@ object SqlFields {
     const val LOCK = "lock"
     const val LOCK_OLD = "lock_old"
     const val OWNER_ID = "owner_id"
-    const val PRODUCT_ID = "product_id"
 
     const val FILTER_TITLE = TITLE
     const val FILTER_OWNER_ID = OWNER_ID
@@ -18,6 +17,6 @@ object SqlFields {
 
     fun String.quoted() = "\"$this\""
     val allFields = listOf(
-        ID, TITLE, AUTHOR, ISBN, YEAR, LOCK, OWNER_ID, PRODUCT_ID,
+        ID, TITLE, AUTHOR, ISBN, YEAR, LOCK, OWNER_ID,
     )
 }

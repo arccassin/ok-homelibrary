@@ -13,7 +13,6 @@ class EdTable(tableName: String) : Table(tableName) {
     val year = text(SqlFields.YEAR).nullable()
     val owner = text(SqlFields.OWNER_ID)
     val lock = text(SqlFields.LOCK)
-    val productId = text(SqlFields.PRODUCT_ID).nullable()
 
     override val primaryKey = PrimaryKey(id)
 
