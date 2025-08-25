@@ -11,7 +11,7 @@ object HmlrEdStubBook {
             isbn = HmlrEdIsbn("978-3-16-148410-0"),
             year = "1984",
             ownerId = HmlrUserId("user-1"),
-            lock = HmlrEdLock("123-234-abc-xyz"),
+            lock = HmlrEdLock("123-234-abc-ABC"),
             permissionsClient = mutableSetOf(
                 HmlrEdPermissionClient.READ,
                 HmlrEdPermissionClient.UPDATE,

@@ -32,10 +32,10 @@ class BizRepoUpdateTest: RepoBaseTest() {
         processor.exec(ctx)
         assertEquals(HmlrState.FINISHING, ctx.state)
         assertEquals(edToUpdate.id, ctx.edResponse.id)
-        assertEquals(initEd.title, ctx.edResponse.title)
-        assertEquals(initEd.author, ctx.edResponse.author)
-        assertEquals(initEd.isbn, ctx.edResponse.isbn)
-        assertEquals(initEd.year, ctx.edResponse.year)
+        assertEquals(edToUpdate.title, ctx.edResponse.title)
+        assertEquals(edToUpdate.author, ctx.edResponse.author)
+        assertEquals(edToUpdate.isbn, ctx.edResponse.isbn)
+        assertEquals(edToUpdate.year, ctx.edResponse.year)
     }
 
     @Test
