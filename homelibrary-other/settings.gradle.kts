@@ -20,5 +20,5 @@ pluginManagement {
     }
 }
 
-//include(":homelibrary-migration-pg")
+include(":homelibrary-migration-pg")
 //include(":homelibrary-migration-cs")
